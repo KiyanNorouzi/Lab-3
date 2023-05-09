@@ -5,7 +5,7 @@
 #####Номер варианта: 6
 #####
 
-# Define the inventory list
+
 inventory = {
     "в": ["Винтовка", 3, 25],
     "п": ["Пистолет", 2, 15],
@@ -21,18 +21,18 @@ inventory = {
     "р": ["Арбалет", 2, 20]
 }
 
-# Define Tom's backpack size and requirements
+
 backpack_size = 3
 infected = True
 needs_inhaler = False
 needs_antidote = True
 required_points = 15
 
-# Define the current backpack and survival points
+
 backpack = [['-' for j in range(backpack_size)] for i in range(backpack_size)]
 current_points = 0
 
-# Define a function to add an item to the backpack
+
 def add_item_to_backpack(item_designation):
     global current_points
     item = inventory[item_designation]
@@ -48,14 +48,14 @@ def add_item_to_backpack(item_designation):
                     return True
     return False
 
-# Add required items to the backpack
+
 if infected and needs_inhaler:
     add_item_to_backpack('и')
 if infected and needs_antidote:
     add_item_to_backpack('д')
 add_item_to_backpack('а')
 
-# Add other items to the backpack until it's full or no more items can be added
+
 while True:
     item_added = False
     for item_designation in inventory.keys():
@@ -64,7 +64,7 @@ while True:
     if not item_added:
         break
 
-# Check if Tom will survive and print the backpack
+
 if current_points >= required_points:
     print("Tom will survive!")
 else:
